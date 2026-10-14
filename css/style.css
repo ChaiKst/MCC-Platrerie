@@ -1010,6 +1010,10 @@ a.detail-val:hover {
   transition: border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
+.field-item textarea {
+  resize: none;
+}
+
 .field-item input:focus,
 .field-item select:focus,
 .field-item textarea:focus {
