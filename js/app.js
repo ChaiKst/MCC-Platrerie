@@ -21,14 +21,31 @@ function initQuoteForm() {
     const btn = form.querySelector('button[type="submit"]');
     const originalText = btn.textContent;
     btn.disabled = true;
-    btn.textContent = 'Envoi de votre demande...';
+    btn.textContent = 'Envoi en cours...';
 
-    setTimeout(() => {
+    const formData = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    })
+    .then(async (response) => {
+      const json = await response.json();
+      if (response.status === 200 && json.success) {
+        form.reset();
+        showToast('Votre demande a bien été envoyée ! Nous vous répondrons sous 48h.');
+      } else {
+        showToast(json.message || "Une erreur est survenue lors de l'envoi.", 'warning');
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      showToast("Impossible d'envoyer le message. Vérifiez votre connexion.", 'warning');
+    })
+    .finally(() => {
       btn.disabled = false;
       btn.textContent = originalText;
-      form.reset();
-      showToast('Votre demande a été transmise ! L\'artisan vous contactera sous 48h.');
-    }, 700);
+    });
   });
 }
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -486,10 +486,14 @@
 
           <div class="contact-form-card">
             <form id="quoteForm" novalidate>
+              <input type="hidden" name="access_key" id="web3formsKey" value="9c935c5c-b306-4329-85c0-7af1c6331355">
+              <input type="hidden" name="subject" value="Nouvelle demande de devis - MCC Plâtrerie">
+              <input type="hidden" name="from_name" value="Site Web MCC Plâtrerie">
+
               <div class="form-grid">
                 <div class="field-item">
                   <label for="contactService">Prestation principale</label>
-                  <select id="contactService" required>
+                  <select id="contactService" name="prestation" required>
                     <option value="ratissage">Ratissage & lissage de murs (finition Q4)</option>
                     <option value="platrerie">Plâtrerie traditionnelle (redressage de murs)</option>
                     <option value="toile">Dépose de toile de verre ou crépi + ratissage</option>
@@ -500,12 +504,12 @@
 
                 <div class="field-item">
                   <label for="contactSurface">Surface approximative (m²)</label>
-                  <input type="number" id="contactSurface" placeholder="Ex : 45 m² au sol ou 100 m² de murs" min="5" max="800">
+                  <input type="number" id="contactSurface" name="surface_m2" placeholder="Ex : 45 m² au sol ou 100 m² de murs" min="5" max="800">
                 </div>
 
                 <div class="field-item">
                   <label for="contactSupport">État actuel des murs</label>
-                  <select id="contactSupport">
+                  <select id="contactSupport" name="etat_murs">
                     <option value="peint">Murs peints avec petites imperfections</option>
                     <option value="toile">Recouverts de toile de verre ou papier peint</option>
                     <option value="abime">Murs très abîmés, fissures ou trous importants</option>
@@ -516,27 +520,27 @@
 
                 <div class="field-item">
                   <label for="contactPostal">Commune ou code postal *</label>
-                  <input type="text" id="contactPostal" required>
+                  <input type="text" id="contactPostal" name="code_postal" required>
                 </div>
 
                 <div class="field-item">
                   <label for="contactName">Nom et prénom *</label>
-                  <input type="text" id="contactName" required>
+                  <input type="text" id="contactName" name="nom_complet" required>
                 </div>
 
                 <div class="field-item">
                   <label for="contactPhone">Téléphone *</label>
-                  <input type="tel" id="contactPhone" required>
+                  <input type="tel" id="contactPhone" name="telephone" required>
                 </div>
 
                 <div class="field-item span-full">
                   <label for="contactEmail">Adresse email</label>
-                  <input type="email" id="contactEmail">
+                  <input type="email" id="contactEmail" name="email">
                 </div>
 
                 <div class="field-item span-full">
                   <label for="contactMessage">Précisions sur votre projet</label>
-                  <textarea id="contactMessage" rows="4" placeholder="Hauteur sous plafond, état des lieux, date souhaitée pour les travaux..."></textarea>
+                  <textarea id="contactMessage" name="message" rows="4" placeholder="Hauteur sous plafond, état des lieux, date souhaitée pour les travaux..."></textarea>
                 </div>
 
                 <div class="field-item span-full submit-row">
